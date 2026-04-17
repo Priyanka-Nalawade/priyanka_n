@@ -4,6 +4,7 @@ import Header from './component/Header'
 import './App.css'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home'
+import Categories from './pages/Categories';
 import GoTop from './component/GoTop';
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/categories" element={<Categories />} />
         {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
       <Footer/>

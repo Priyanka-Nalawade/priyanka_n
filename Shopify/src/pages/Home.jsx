@@ -78,14 +78,16 @@ useEffect(()=>{
        </div>
 
         {/* Offer Section */}
-        <div className='flex '>
+        <div className='flex m-6'>
           <div className='flex-1'>
             <img src={Offer} alt="offer Img" />
           </div>
-          <div className='flex-1  '>
-            <h2 className='text-4xl text-black font-bold center'>Don't miss the offer!</h2>
-            <h2>Grab it now</h2>
-            <button>Shop Now</button>
+          <div className='flex-1 flex justify-center item-center flex-col
+               bg-[#e3edf6] dark:bg-slate-600 dark:text-white  
+               items-center text-center justify-center p-4 '>
+            <h2 className='text-4xl text-black font-bold center'>Don't miss the offer !</h2>
+            <h2 className='text-4xl text-black font-bold center'>Grab it now</h2>
+            <button className='bg-white font-semibold rounded-sm py-2 mt-4 px-4'>Shop Now</button>
           </div>
         </div>
 
