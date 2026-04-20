@@ -92,7 +92,7 @@ useEffect(()=>{
         </div>
 
         {/* New Arrivals Section */}
-       <div className='p-6'>
+       <div className='p-6 mb-20'>
         <h2 className='text-4xl font-bold pb-4'>New Arrivals</h2>
         <div className='grid grid-cols-4 gap-4' >
           {

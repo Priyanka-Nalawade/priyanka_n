@@ -31,7 +31,7 @@ export default function Categories() {
 
     return (
         <>
-            <div className='px-6 py-2 flex justify-between items-center'>
+            <div className='px-6 py-2 flex justify-between items-center '>
                 <h1 className='text-lg font-bold'>Category</h1>
                 <div className='border'>
                     <input
@@ -44,7 +44,7 @@ export default function Categories() {
                 </div>
             </div>
 
-            <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-6'>
+            <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-6 mb-20'>
                 {filteredCategories.map((item, index) => (
                     <div key={index} className='bg-gray-100 p-4'>
                         <h2 className='text-lg capitalize'>{item.slug}</h2>
