@@ -1,32 +1,59 @@
-import React, { useState,useEffect } from 'react'
-export default function Categories(){
-    const [categories,setCategories]=useState([]);
-    const[err,setErr]=useState('')
-     const fetchCategories= async()=>{
-        try{
-            const result=await fetch("https://dummyjson.com/products/categories");
-            if(!result.ok){
-                throw new Error('Api is not Loading...')
+import React, { useState, useEffect } from 'react';
+
+export default function Categories() {
+    const [categories, setCategories] = useState([]);
+    const [search, setSearch] = useState('');
+    const [err, setErr] = useState('');
+
+    const fetchCategories = async () => {
+        try {
+            const result = await fetch("https://dummyjson.com/products/categories");
+            if (!result.ok) {
+                throw new Error('API is not loading...');
             }
-            const respond = await result.json()
-            setCategories(respond)
-        }catch(error){
-            setErr(error.message)
+            const response = await result.json();
+            setCategories(response);
+        } catch (error) {
+            setErr(error.message);
         }
-     }
-   
-     useEffect(()=>{
+    };
+
+    useEffect(() => {
         fetchCategories();
-     },[])
-      if(err) return(<p className='text-red'>{err}</p>)
-    return(
-       <div className='grid grid-cols-6 gap-4 p-6'>{
-        categories.map((item, index)=>(
-            <div  key={index} className='bg-gray-100 p-4'>
-                <h2 className='text-lg capitalize'>{item.slug}</h2>
-                <button className='hover:underline text-blue-500'>Know More</button>
+    }, []);
+
+    // Filtered categories based on search
+    const filteredCategories = categories.filter((item) =>
+        item.slug.toLowerCase().includes(search.toLowerCase())
+    );
+
+    if (err) return <p className='text-red-500'>{err}</p>;
+
+    return (
+        <>
+            <div className='px-6 py-2 flex justify-between items-center'>
+                <h1 className='text-lg font-bold'>Category</h1>
+                <div className='border'>
+                    <input
+                        className='p-1'
+                        type="text"
+                        placeholder='Category...'
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
+                </div>
             </div>
-        ))
-        }</div>
-    )
+
+            <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-6'>
+                {filteredCategories.map((item, index) => (
+                    <div key={index} className='bg-gray-100 p-4'>
+                        <h2 className='text-lg capitalize'>{item.slug}</h2>
+                        <button className='hover:underline text-blue-500'>
+                            Know More
+                        </button>
+                    </div>
+                ))}
+            </div>
+        </>
+    );
 }
