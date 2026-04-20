@@ -13,10 +13,6 @@ export default function Header() {
           <NavLink to='/home'>Shopify</NavLink>
           
           </div> 
-        <div className='border-1 border-blue-500 mx-5 rounded flex align-center'> 
-            <input className='p-2 ' type="text" placeholder='Apple...'/>
-            <button className='bg-blue-500 p-2 text-white'><SearchOutlinedIcon/></button> 
-        </div>
         <ul className='flex gap-5 text-xl font-bold dark:text-white'>
             <li><NavLink to="/home">Home</NavLink></li>
             <li><NavLink to="/Products">Products</NavLink></li>

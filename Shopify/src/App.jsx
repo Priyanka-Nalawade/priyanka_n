@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Categories from './pages/Categories';
 import GoTop from './component/GoTop';
 import Products from "../src/pages/Products"
+import NotFound from "./pages/NotFound"
 function App() {
 
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
         <Route path='/Products' element={<Products/>}/>
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer/>
       <GoTop/>
