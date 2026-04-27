@@ -28,14 +28,12 @@ export default function Products(){
         <>
         <div className='px-6 py-2 flex justify-between items-center '>
                 <h1 className='text-xl font-bold'>Products</h1>
-                <div className='border'>
-                    <input
-                        className='p-1'
-                        type="text"
-                        placeholder='...'
-                        // value={search}
-                        // onChange={(e) => setSearch(e.target.value)}
-                    />
+                <div className='border' style={{minWidth:'150px'}}>
+                    <select className='w-full p-2' name="cars" id="cars">
+                        <option value="volvo">Default</option>
+                        <option value="saab">Price (Low to Heigh)</option>
+                        <option value="mercedes">Price (Heigh to Low)</option>
+                    </select>
                 </div>
             </div>
         <div className='grid md:grid-cols-4 sm:grid-cols-2 gap-2 p-6'>

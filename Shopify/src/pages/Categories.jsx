@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 
 export default function Categories() {
     const [categories, setCategories] = useState([]);
     const [search, setSearch] = useState('');
     const [err, setErr] = useState('');
-
+    const navigate = useNavigate();
+   
     const fetchCategories = async () => {
         try {
             const result = await fetch("https://dummyjson.com/products/categories");
@@ -17,11 +19,13 @@ export default function Categories() {
             setErr(error.message);
         }
     };
-
     useEffect(() => {
         fetchCategories();
     }, []);
-
+    // navigate 
+ const categoriesDetails = (value)=>{
+    navigate(`${value.slug}`)
+ }
     // Filtered categories based on search
     const filteredCategories = categories.filter((item) =>
         item.slug.toLowerCase().includes(search.toLowerCase())
@@ -48,8 +52,9 @@ export default function Categories() {
                 {filteredCategories.map((item, index) => (
                     <div key={index} className='bg-gray-100 p-4'>
                         <h2 className='text-lg capitalize'>{item.slug}</h2>
-                        <button className='hover:underline text-blue-500'>
-                            Know More
+                        <button className='hover:underline cursor-pointer text-blue-500'
+                         onClick={() => categoriesDetails(item)}>
+                            View Products
                         </button>
                     </div>
                 ))}

@@ -8,6 +8,7 @@ import Categories from './pages/Categories';
 import GoTop from './component/GoTop';
 import Products from "../src/pages/Products"
 import NotFound from "./pages/NotFound"
+import CategoryDetails from './pages/CategoryDetails';
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:slug" element={<CategoryDetails />} />
         <Route path='/Products' element={<Products/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
