@@ -9,6 +9,7 @@ import GoTop from './component/GoTop';
 import Products from "../src/pages/Products"
 import NotFound from "./pages/NotFound"
 import CategoryDetails from './pages/CategoryDetails';
+import ProductDetails from './pages/ProductDetails';
 function App() {
 
   return (
@@ -20,7 +21,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/categories/:slug" element={<CategoryDetails />} />
-        <Route path='/Products' element={<Products/>}/>
+        <Route path='/products' element={<Products/>}/>
+        <Route path='/products/:category/:id' element={<ProductDetails/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer/>

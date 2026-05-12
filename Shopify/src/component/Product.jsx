@@ -3,8 +3,10 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
+import {useNavigate} from 'react-router-dom'
 
 export default function Product({
+  id,
   img,
   category,
   title,
@@ -12,14 +14,18 @@ export default function Product({
   price,
   discountPercentage,
 }) {
+   const navigate = useNavigate();
+   const productDetails = ()=>{
+    navigate(`/products/${category}/${id}`)
+   }
   return (
     <div className="border border-gray-200">
-      <div>
+      <div className='cursor-pointer' onClick={productDetails}>
         <img src={img} alt="Product Img" />
       </div>
       <div className="border-t-1 border-gray-200 p-4">
         <p className="text-gray-500 text-sm">{category}</p>
-        <h4 className="font-semibold hover:underline dark:text-white overflow-hidden text-ellipsis whitespace-nowrap block">
+        <h4 onClick={productDetails} className="cursor-pointer font-semibold hover:underline dark:text-white overflow-hidden text-ellipsis whitespace-nowrap block">
           {title}
         </h4>
         <div className="flex">

@@ -14,10 +14,19 @@ export default function Header() {
           
           </div> 
         <ul className='flex gap-5 text-xl font-bold dark:text-white'>
-            <li><NavLink to="/home">Home</NavLink></li>
-            <li><NavLink to="/Products">Products</NavLink></li>
-            <li><NavLink to="/categories">Categories</NavLink></li>
-            <li><NavLink to="/"><PersonIcon fontSize='large'/></NavLink></li>
+            <li><NavLink  className={({ isActive }) =>
+              isActive ? "text-blue-500" : "text-black dark:text-white"
+
+            } to="/home">Home</NavLink></li>
+            <li><NavLink className={({ isActive }) =>
+              isActive ? "text-blue-500" : "text-black dark:text-white"
+
+            }  to="/Products">Products</NavLink></li>
+            <li><NavLink className={({ isActive }) =>
+              isActive ? "text-blue-500" : "text-black dark:text-white"
+
+            }   to="/categories">Categories</NavLink></li>
+            <li><NavLink  to="/"><PersonIcon fontSize='large'/></NavLink></li>
             <li><NavLink to="/"><ShoppingCartOutlinedIcon fontSize='large'/></NavLink></li>
             <li><NavLink to="/"><DarkModeOutlinedIcon fontSize='large'/></NavLink></li>
         </ul>

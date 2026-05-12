@@ -70,7 +70,7 @@ useEffect(()=>{
           {
             Api.slice(0,24).map((v)=>{
               return(
-                <Product key={v.id} img={v.thumbnail}  category={v.category} title={v.title} Ratings={v.rating}  price={v.price} discountPercentage={v.discountPercentage}/>
+                <Product key={v.id} id={v.id} img={v.thumbnail}  category={v.category} title={v.title} Ratings={v.rating}  price={v.price} discountPercentage={v.discountPercentage}/>
               )
             })
           }

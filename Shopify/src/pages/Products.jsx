@@ -39,7 +39,7 @@ export default function Products(){
         <div className='grid md:grid-cols-4 sm:grid-cols-2 gap-2 p-6'>
             {
                 product.map((item,index)=>(
-                   <Product key={item.id} img={item.thumbnail} 
+                   <Product key={item.id} id={item.id} img={item.thumbnail} 
                             category={item.category} 
                             title={item.title}
                             Ratings={item.rating}
