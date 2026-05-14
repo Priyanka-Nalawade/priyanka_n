@@ -7,6 +7,7 @@ import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Product from '../component/Product'
 import Offer from '../assets/images/banner.jpg'
+import { Link } from 'react-router-dom';
 
 
 export default function Home() {
@@ -87,7 +88,8 @@ useEffect(()=>{
                items-center text-center justify-center p-4 '>
             <h2 className='text-4xl text-black font-bold center'>Don't miss the offer !</h2>
             <h2 className='text-4xl text-black font-bold center'>Grab it now</h2>
-            <button className='bg-white font-semibold rounded-sm py-2 mt-4 px-4'>Shop Now</button>
+            <Link to='/Products'><button className='bg-white font-semibold rounded-sm py-2 mt-4 px-4'>Shop Now</button></Link>
+            
           </div>
         </div>
 
