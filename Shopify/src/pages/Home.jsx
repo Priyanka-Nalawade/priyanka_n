@@ -8,6 +8,7 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Product from '../component/Product'
 import Offer from '../assets/images/banner.jpg'
 import { Link } from 'react-router-dom';
+import useOnline from '../component/useOnline';
 
 
 export default function Home() {
@@ -37,6 +38,7 @@ export default function Home() {
 
 // Product Api Integration
  const [Api,setApi]= useState([])
+ const onlineStatus =useOnline()
 
  const fetchApi = async()=>{
   const respond = await fetch('https://dummyjson.com/products');
@@ -46,7 +48,7 @@ export default function Home() {
 useEffect(()=>{
   fetchApi();
 },[])
-
+ if (onlineStatus === false) return <h1 className='text-center font-bold text-xl'>Please check network connection. You are offline</h1>
   return (
     <div>
 
