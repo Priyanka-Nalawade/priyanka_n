@@ -1,27 +1,12 @@
 import React, { useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom'
+import useCategories from '../component/useCategories';
 
 export default function Categories() {
-    const [categories, setCategories] = useState([]);
     const [search, setSearch] = useState('');
-    const [err, setErr] = useState('');
     const navigate = useNavigate();
+   const {categories,err}=useCategories()
    
-    const fetchCategories = async () => {
-        try {
-            const result = await fetch("https://dummyjson.com/products/categories");
-            if (!result.ok) {
-                throw new Error('API is not loading...');
-            }
-            const response = await result.json();
-            setCategories(response);
-        } catch (error) {
-            setErr(error.message);
-        }
-    };
-    useEffect(() => {
-        fetchCategories();
-    }, []);
     // navigate 
  const categoriesDetails = (value)=>{
     navigate(`${value.slug}`)
@@ -47,7 +32,6 @@ export default function Categories() {
                     />
                 </div>
             </div>
-
             <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-6 mb-20'>
                 {filteredCategories.map((item, index) => (
                     <div key={index} className='bg-gray-100 p-4'>
@@ -59,6 +43,7 @@ export default function Categories() {
                     </div>
                 ))}
             </div>
+            
         </>
     );
 }

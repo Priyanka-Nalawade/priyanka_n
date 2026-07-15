@@ -35,7 +35,7 @@ export default function Products(){
                         <option value="mercedes">Price (Heigh to Low)</option>
                     </select>
                 </div>
-            </div>
+        </div>
         <div className='grid md:grid-cols-4 sm:grid-cols-2 gap-2 p-6'>
             {
                 product.map((item,index)=>(
