@@ -5,7 +5,7 @@ import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined
 import CurrencyExchangeOutlinedIcon from '@mui/icons-material/CurrencyExchangeOutlined';
 import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import Product from '../component/Product'
+import Product ,{limitedStock} from '../component/Product'
 import Offer from '../assets/images/banner.jpg'
 import { Link } from 'react-router-dom';
 import useOnline from '../component/useOnline';
@@ -39,7 +39,7 @@ export default function Home() {
 // Product Api Integration
  const [Api,setApi]= useState([])
  const onlineStatus =useOnline()
-
+ const WithLimitesStock=limitedStock(Product)
  const fetchApi = async()=>{
   const respond = await fetch('https://dummyjson.com/products');
   const result = await respond.json();
@@ -72,7 +72,9 @@ useEffect(()=>{
         <div className='grid grid-cols-4 gap-4' >
           {
             Api.slice(0,24).map((v)=>{
-              return(
+              
+              return  v.stock<50 ? (<WithLimitesStock key={v.id} id={v.id} img={v.thumbnail}  category={v.category} title={v.title} Ratings={v.rating}  price={v.price} discountPercentage={v.discountPercentage}/>)
+               :(
                 <Product key={v.id} id={v.id} img={v.thumbnail}  category={v.category} title={v.title} Ratings={v.rating}  price={v.price} discountPercentage={v.discountPercentage}/>
               )
             })
@@ -87,7 +89,7 @@ useEffect(()=>{
           </div>
           <div className='flex-1 flex justify-center item-center flex-col
                bg-[#e3edf6] dark:bg-slate-600 dark:text-white  
-               items-center text-center justify-center p-4 '>
+               items-center text-center p-4 '>
             <h2 className='text-4xl text-black font-bold center'>Don't miss the offer !</h2>
             <h2 className='text-4xl text-black font-bold center'>Grab it now</h2>
             <Link to='/Products'><button className='bg-white font-semibold rounded-sm py-2 mt-4 px-4'>Shop Now</button></Link>

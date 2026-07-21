@@ -23,7 +23,7 @@ export default function Product({
       <div className='cursor-pointer' onClick={productDetails}>
         <img src={img} alt="Product Img" />
       </div>
-      <div className="border-t-1 border-gray-200 p-4">
+      <div className="border-t border-gray-200 p-4">
         <p className="text-gray-500 text-sm">{category}</p>
         <h4 onClick={productDetails} className="cursor-pointer font-semibold hover:underline dark:text-white overflow-hidden text-ellipsis whitespace-nowrap block">
           {title}
@@ -50,4 +50,17 @@ export default function Product({
       </div>
     </div>
   );
+}
+// heigher order component
+
+export const limitedStock = (Product)=>{
+  return (props)=>{
+    return (
+      <div>
+        <label className="absolute bg-red-600 text-xs p-2 font-bold rounded-sm" >Limited Stock</label>
+        <Product {...props}/>
+      </div>
+      
+    ) 
+  }
 }
