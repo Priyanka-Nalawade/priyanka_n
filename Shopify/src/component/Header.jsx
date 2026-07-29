@@ -36,7 +36,7 @@ export default function Header() {
             </NavLink>
             {/* <PersonIcon fontSize='large'/></NavLink> */}
             </li>
-            <li><NavLink to="/" className='relative'><ShoppingCartOutlinedIcon fontSize='large'/>
+            <li><NavLink to="/cart" className='relative'><ShoppingCartOutlinedIcon fontSize='large'/>
             <div className='absolute bg-pink-500 text-center text-white text-sm p-1 rounded-full top-[-15px] right-[-10px] w-[25px] h-[25px]'>
               {cartCount}
             </div>

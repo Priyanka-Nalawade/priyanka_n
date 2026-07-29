@@ -7,6 +7,7 @@ import GoTop from './component/GoTop';
 import NotFound from "./pages/NotFound"
 import ProductDetails from './pages/ProductDetails';
 import Loading from './component/Loading';
+import Cart from './pages/Cart';
 
 const Home =lazy(()=>import('./pages/Home'))
 const Categories =lazy(()=>import('./pages/Categories'))
@@ -26,6 +27,7 @@ function App() {
           <Route path="/categories/:slug" element={<CategoryDetails />} />
           <Route path='/products' element={<Products/>}/>
           <Route path='/products/:category/:id' element={<ProductDetails/>}/>
+          <Route path='/cart' element={<Cart/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense> 
