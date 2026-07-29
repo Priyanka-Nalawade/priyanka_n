@@ -4,6 +4,9 @@ import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
 import {useNavigate} from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../Redux/slice";
+
 
 export default function Product({
   id,
@@ -18,6 +21,8 @@ export default function Product({
    const productDetails = ()=>{
     navigate(`/products/${category}/${id}`)
    }
+   const cartValue=useSelector((state)=>state.cart.value)
+   const dispatch=useDispatch()
   return (
     <div className="border border-gray-200">
       <div className='cursor-pointer' onClick={productDetails}>
@@ -43,7 +48,18 @@ export default function Product({
               <div>{discountPercentage} %</div>
             </div>
           </div>
-          <div className="bg-pink-500 text-white p-1 px-3 border rounded-md hover:bg-blue-500 cursor-pointer">
+          <div className="bg-pink-500 text-white p-1 px-3 border rounded-md hover:bg-blue-500 cursor-pointer"
+           onClick={()=>dispatch(addToCart(
+            {
+      id,
+      img,
+      category,
+      title,
+      Ratings,
+      price,
+      discountPercentage,
+    }
+           ))}>
             <ShoppingCartOutlinedIcon fontSize="small" />
           </div>
         </div>

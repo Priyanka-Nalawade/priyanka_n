@@ -15,21 +15,25 @@ export default function Home() {
 
   // Services Cards
   const serviceCard = [{
+    id:111,
     img:<LocalShippingOutlinedIcon/>,
     title:'Free Delivery',
     discription:'Orders from all items'
   },
   {
+    id:112,
     img:<CurrencyExchangeOutlinedIcon/>,
     title:'Return & Refund',
     discription:'Money back guarantee'
   },
    {
+    id:113,
     img:<LocalOfferOutlinedIcon/>,
     title:'Member Discount',
     discription:'On order over $99'
   },
    {
+    id:114,
     img:<SupportAgentOutlinedIcon/>,
     title:'Support 24/7',
     discription:'Contact us 24 hours a day'
@@ -60,7 +64,7 @@ useEffect(()=>{
       {
         serviceCard.map((v)=>{
           return(
-            <Services img={v.img} title={v.title} discription={v.discription}/>
+            <Services key={v.id} img={v.img} title={v.title} discription={v.discription}/>
           )
         })
       }
